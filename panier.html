@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Panier</title>
     <link rel="stylesheet" href="panier.css">
+    <script>
+        alert("IMPORTANT: Scrollez sur les images pour tout voir (comme dans mon clonnage de Gomycode avec la section etudiants  )");
+        prompt("vous etes sur d'avoir lu l'alerte ?🙄😒")
+        prompt("Rafraichissez la page si vous ne l'avez pas lu svp.😐")
+    </script>
 </head>
 <body>
-
-<script>
-    alert("IMPORTANT: Scrollez sur les images pour tout voir (comme dans mon clonnage de Gomycode avec la section etudiants  )");
-    prompt("vous etes sur d'avoir lu l'alerte ?🙄😒")
-    prompt("si non apres me dites pas que je vous ai pas prévenu.😐")
-</script>
 
     <section>
         <div class="cart-item">
@@ -93,45 +92,13 @@
     <div class="cart-total">
         <strong>Total:</strong> <span class="total-price">$XX</span>
     </div>
-    <button class="btn-checkout">Passer à la caisse</button>
+    <button class="btn-checkout" onclick="reussite(this)">Passer à la caisse</button>
 </div>
 
 <!-- External icon toolkit link -->
 <link rel="stylesheet" href="path-to-icon-toolkit.css">
 
-<script>
-// Fonction pour mettre à jour la quantité d'un article
-function updateQuantity(button, delta) {
-    var input = button.parentNode.querySelector('.quantity-input');
-    var newValue = parseInt(input.value) + delta;
-    input.value = newValue < 1 ? 1 : newValue;
-    return updateTotal(); // Mise à jour du prix total
-}
-
-// Fonction pour supprimer un article du panier
-function removeItem(button) {
-    button.closest('.cart-item').remove();
-    return updateTotal(); // Mise à jour du prix total
-}
-
-// Fonction pour aimer ou ne plus aimer un article
-function toggleLike(heartIcon) {
-    heartIcon.classList.toggle('icon-heart'); // Article aimé
-    heartIcon.classList.toggle('icon-heart-empty'); // Article non-aimé
-}
-
-// Fonction pour calculer et afficher le prix total
-function updateTotal() {
-    var total = 0;
-    var items = document.querySelectorAll('.cart-item');
-    items.forEach(function(item) {
-    var price = parseFloat(item.querySelector('.item-price').textContent.replace('€', ''));
-    var quantity = parseInt(item.querySelector('.quantity-input').value);
-    total += price * quantity;
-    });
-    return document.querySelector('.total-price').textContent = `$${total.toFixed(2)}`;
-}
-</script>
+<script src="panier.js"></script>
 
 </body>
 </html>
